@@ -12,10 +12,7 @@ const login = (loginFields) => {
     fetch(APIUrl)
     .then(res => res.json() )
     .then(data => {
-      return data;
-    })
-    .then(usersArr => {
-      const isValid = usersArr.find(item => {
+      const isValid = data.find(item => {
         return ((item.username.toLowerCase() === loginFields.username.trim().toLowerCase()) && (item.email.toLowerCase() === loginFields.email.trim().toLowerCase()));
       });
       if(isValid){
